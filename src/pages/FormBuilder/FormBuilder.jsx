@@ -29,19 +29,12 @@ export default function FormBuilder() {
     setFormValues((prev) => ({ ...prev, [fieldId]: value }));
   };
 
-  // React 19 useActionState for form submission
   const [, submitAction, isPending] = useActionState(
     async () => {
       const submissionData = {};
       previewFields.forEach((field) => {
         submissionData[field.label] = formValues[field.id] ?? '';
       });
-
-      console.log('═══════════════════════════════════════');
-      console.log('📋 Form Submitted! Data:');
-      console.log('═══════════════════════════════════════');
-      console.log(JSON.stringify(submissionData, null, 2));
-      console.log('═══════════════════════════════════════');
 
       setSubmitted(true);
       return submissionData;
@@ -64,7 +57,6 @@ export default function FormBuilder() {
       </div>
 
       <div className={styles.splitLayout}>
-        {/* ===== LEFT: Builder Panel ===== */}
         <div className={styles.builderPanel}>
           <div className={styles.panelHeader}>
             <span className={styles.panelIcon}>🛠️</span>
@@ -186,9 +178,8 @@ export default function FormBuilder() {
               <span>+</span> Add Field
             </button>
             <button
-              className={`${styles.saveBtn} ${
-                saveStatus === 'saving' ? styles.saveBtnSaving : ''
-              } ${saveStatus === 'saved' ? styles.saveBtnSaved : ''}`}
+              className={`${styles.saveBtn} ${saveStatus === 'saving' ? styles.saveBtnSaving : ''
+                } ${saveStatus === 'saved' ? styles.saveBtnSaved : ''}`}
               onClick={save}
               id="save-form-btn"
             >

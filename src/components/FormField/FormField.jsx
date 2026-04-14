@@ -45,20 +45,20 @@ export default function FormField({ field, value, onChange }) {
           const selectedValues = value ? (Array.isArray(value) ? value : [value]) : [];
           return (
             <div className={styles.checkGroup}>
-              {parsedOptions.map((opt) => (
-                <label key={opt} className={styles.checkLabel}>
+              {parsedOptions.map((option) => (
+                <label key={option} className={styles.checkLabel}>
                   <input
                     type="checkbox"
-                    value={opt}
-                    checked={selectedValues.includes(opt)}
+                    value={option}
+                    checked={selectedValues.includes(option)}
                     onChange={(e) => {
                       const next = e.target.checked
-                        ? [...selectedValues, opt]
-                        : selectedValues.filter((v) => v !== opt);
+                        ? [...selectedValues, option]
+                        : selectedValues.filter((v) => v !== option);
                       onChange(id, next);
                     }}
                   />
-                  {opt}
+                  {option}
                 </label>
               ))}
             </div>
@@ -80,17 +80,17 @@ export default function FormField({ field, value, onChange }) {
       case 'radio':
         return (
           <div className={styles.checkGroup}>
-            {parsedOptions.map((opt) => (
-              <label key={opt} className={styles.checkLabel}>
+            {parsedOptions.map((option) => (
+              <label key={option} className={styles.checkLabel}>
                 <input
                   type="radio"
                   name={`radio-${id}`}
-                  value={opt}
-                  checked={value === opt}
+                  value={option}
+                  checked={value === option}
                   onChange={(e) => onChange(id, e.target.value)}
                   required={required}
                 />
-                {opt}
+                {option}
               </label>
             ))}
           </div>
