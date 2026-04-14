@@ -1,0 +1,112 @@
+.fieldWrapper {
+  margin-bottom: var(--space-lg);
+  animation: fadeIn 0.3s ease both;
+}
+
+.label {
+  display: block;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.required {
+  color: var(--accent-red);
+  margin-left: 2px;
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-base);
+  transition: all var(--transition-fast);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  background: var(--bg-input-focus);
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239395a5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+
+.select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Checkbox & Radio */
+.checkGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.checkLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.checkLabel:hover {
+  background: var(--bg-input-focus);
+  border-color: var(--border-default);
+}
+
+.checkLabel input[type="checkbox"],
+.checkLabel input[type="radio"] {
+  accent-color: var(--accent-purple);
+  width: 16px;
+  height: 16px;
+}
+
+/* Single checkbox (boolean) */
+.singleCheck {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.singleCheck input {
+  accent-color: var(--accent-purple);
+  width: 18px;
+  height: 18px;
+}
