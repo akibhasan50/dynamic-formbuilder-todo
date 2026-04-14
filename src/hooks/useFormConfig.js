@@ -22,12 +22,12 @@ export function useFormConfig() {
   }, []);
 
   const removeField = useCallback((id) => {
-    setFields((prev) => prev.filter((f) => f.id !== id));
+    setFields((prev) => prev.filter((field) => field.id !== id));
   }, []);
 
   const updateField = useCallback((id, key, value) => {
     setFields((prev) =>
-      prev.map((f) => (f.id === id ? { ...f, [key]: value } : f))
+      prev.map((field) => (field.id === id ? { ...field, [key]: value } : field))
     );
   }, []);
 
@@ -43,7 +43,7 @@ export function useFormConfig() {
 
   const save = useCallback(() => {
     // Validate: at least one field with a label
-    const validFields = fields.filter((f) => f.label.trim() !== '');
+    const validFields = fields.filter((field) => field.label.trim() !== '');
     if (validFields.length === 0) {
       alert('Please add at least one field with a label.');
       return false;
